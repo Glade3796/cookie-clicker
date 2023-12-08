@@ -8,10 +8,10 @@ Total goodwill is displayed just above the button.
 
 The objective of the game is to release all 3 animals, displayed on the left side of the screen titled "rescuees".
 
-<!-- ====================================================== -->
+---
 
 To help you there are three buttons in the "purchase" area, beneath the 'release animal' button.
-\*all costs exponentiallly increase
+-nb. all costs exponentiallly increase
 
 Recruit:inital cost 20
 Recruit a friend to your cause. They'll help you and the hunt saboteurs release animals.
@@ -25,7 +25,7 @@ Online awareness:inital cost 2500
 Recruit a tech savvy activist to spread word of your cause.
 ->Each activist increases the trickle of goodwill you receive (a per second increase of goodwill).
 
-<!-- ====================================================== -->
+---
 
 Sab team efffectiveness:
 You will receive messages on how the teams are doing.
@@ -36,7 +36,7 @@ You will receive messages on how the teams are doing.
 "unorganised" = there takinga around 10 seconds to release aninmals
 "utter noobs" = honestly, who knows at this point.
 
-<!-- ====================================================== -->
+---
 
 Releasing animals:
 Once you have enough goodwill you'll be able to launch a daring raid and rescue some persecuted animals.
@@ -47,7 +47,7 @@ Cow - costs 200,000
 Doing good in this world is risky. Getting caught may get you and your friends in trouble.
 But it might come with it's own rewards, developing grit and determination to do the right thing at all costs.
 
-<!-- ====================================================== -->
+---
 
 The game autosaves. If you'd like to reset your progress simply press the reset button at the bottom of the screen.
 
