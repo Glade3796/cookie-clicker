@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> &#x1F98A save the animals</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="title">
+        <div> logo
+        </div>
+        <div>
+          <h1>Save the Animals!</h1>
+          <p>the cutest revolution in town</p>
+        </div>
+      </div>
+      <div class="status">
+        <table>
+          <tr>
+            <td>Sab team effectiveness:</td>
+            <td id="cookiesPerSec"></td>
+          </tr>
+          <tr>
+            <td>Goodwill per animal released</td>
+            <td id="cookiesPerX"></td>
+          </tr>
+        </table>
+        <h2 id="counterDisp" class="heartbeat"></h2>
+        <p id="intervalInfo"></p>
+      </div>
+      <main class="main place">
+        <div class="main-grid">
+          <div class="solidaritea-button-area " id="theBtn">
+            <button id="theBtn" class="glow-on-hover white">
+              &#10086; Release animal&#10086;
+            </button>
+          </div>
+          <div id="CIs">Click increasers</div>
+          <div id="ACs">Auto clickers</div>
+          <div id="ICs">Interval clickers</div>
+          <div class="clickIncreaser tooltip">
+            <button id="recruitComrade" class="glow-on-hover clicker">
+              <p id="recruitComTxt"></p>
+              <p id="comradeNum"></p>
+            </button>
+            <span class="tooltiptext">get a friend to help rescue animals</span>
+          </div>
+          <div class="autoClicker tooltip">
+            <button id="foxSquad" class="glow-on-hover autoClick ">
+              <p id="getFoxSquad"></p>
+              <p id="foxSquadNum"></p>
+            </button>
+            <span class="tooltiptext">A team of sabs will rescue animals at random intervals</span>
+          </div>
+          <div class="intervalClicker tooltip">
+            <button id="ic1" class="glow-on-hover intervalClick">
+              <p id="getCampaign"></p>
+              <p id="campaignNum"></p>
+            </button>
+            <span class="tooltiptext">Online activists spread the word</span>
+          </div>
+          <div id="numberOfcomrades" class="small-text"></div>
+          <div class="animalbox"><h1 id="freed"></h1></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </main>
+      <div class="sidebar">
+        <div class="sidebar-title">RESCUEES</div>
+          <div id="divFree0" class="tooltip">
+            <button id="free0" class="glow-on-hover "> Save puppies from cosmetic labs 🐕
+          </button>
+          <span class="tooltiptext purchase-tip">break em out for &#10086;10,000</span>
+        </div>
+          <div id="divFree1" class="tooltip">
+            <button id="free1" class="glow-on-hover" > rescue cows from slaughter 🐄
+            </button>
+            <span class="tooltiptext purchase-tip">break em out for &#10086;100,000 </span>
+          </div>
+          <div id="divFree2" class="tooltip">
+            <button id="free2" class="glow-on-hover ">prevent the badger cull 🦡
+            </button>
+            <span class="tooltiptext purchase-tip">liberate a farm for &#10086;200,000</span>
+          </div>
+      </div>
+      <footer class="footer">
+        Spend goodwill ( &#10086; : goodwill) to recruit more friends and
+        release as many animals as possible
+        <button id="resetBtn">Reset</button>
+        <button id="cheat">CHEAT!</button>
+      </footer>
+    </div>
+  </body>
+</html>

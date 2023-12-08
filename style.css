@@ -1,0 +1,324 @@
+@font-face {
+  font-family: anarcho;
+  src: url("./assets/Anarchaos-7BX9w.otf");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: anarcho;
+  color: #e13b3b;
+}
+p {
+  margin: 0;
+}
+body {
+  background: #ff9797;
+  height: 100vh;
+  margin: 0;
+}
+.page-container {
+  background: rgb(107, 0, 0);
+  height: calc(100vh - 10px);
+
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) minmax(10px, 3fr);
+  grid-template-rows: min-content min-content 1fr min-content;
+  gap: 5px;
+
+  > * {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    > * {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+    }
+  }
+}
+
+#logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.title {
+  grid-column: 1 / -1;
+  background: hsl(317, 100%, 3%);
+  font-family: anarcho;
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) minmax(10px, 3fr);
+  > div h1 {
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: 5px;
+  }
+  > div p {
+    margin: 0;
+  }
+}
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 4;
+  background: #000000;
+  display: grid;
+  grid-template-rows: 0.5fr repeat(3, 1fr);
+  gap: 10px;
+}
+.sidebar-title {
+  font-family: anarcho;
+  font-size: 2rem;
+}
+
+.status {
+  grid-column: 2 / 3;
+  background: #430000;
+  font-family: anarcho;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  > h2 {
+    grid-column: 2;
+    margin: 0;
+    font-family: anarcho;
+    font-size: 2.5rem;
+  }
+}
+.page-main {
+  grid-column: 2 / 3;
+  background: #000000;
+}
+.main {
+  background-color: #000000;
+}
+.main-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr repeat(6, 1fr);
+  gap: 10px;
+  > #CIs {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  > #ACs {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  > #ICs {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+.footer {
+  grid-column: 1 / -1;
+  background: #000000;
+}
+
+.solidaritea-button-area {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.clickIncreaser {
+  grid-column: 1;
+  grid-row: 3;
+}
+.autoClicker {
+  grid-column: 2;
+  grid-row: 3;
+}
+.intervalClicker {
+  grid-column: 3;
+  grid-row: 3;
+}
+.clickIncreaser:hover,
+.autoClicker:hover,
+.intervalClicker:hover {
+  cursor: pointer;
+}
+
+.white {
+  color: white;
+}
+/* MAIN BUTTON ANIM */
+.glow-on-hover {
+  /* width: 220px;
+  height: 50px; */
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-family: anarcho;
+  font-size: 2rem;
+}
+/* #ff0000,
+#ff7300,
+#fffb00,
+#48ff00,
+#00ffd5,
+#002bff,
+#7a00ff,
+#ff00c8,
+#ff0000 */
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #5bcefa,
+    #a8bcd9,
+    #f5a9b8,
+    #fad4dc,
+    #ffffff,
+    #fad4dc,
+    #f5a9b8,
+    #a8bcd9,
+    #5bcefa
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* purchase button */
+.clicker {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  align-items: center;
+  letter-spacing: 2px;
+}
+.autoClick {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  letter-spacing: 2px;
+}
+.intervalClick {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  letter-spacing: 2px;
+}
+
+.small-text {
+  font-size: 2%;
+}
+
+/* tooltips */
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #fad4dc;
+  color: #000000;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-family: anarcho;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.purchase-tip {
+  font-size: 2rem;
+}
+#divFree0,
+#divFree1,
+#divFree2 #free2 {
+  visibility: visible;
+}
+#freed {
+  font-size: 2.5rem;
+  margin: 0;
+}
