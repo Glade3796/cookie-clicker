@@ -276,3 +276,4 @@ free0Btn.addEventListener("click", free0event);
 free1Btn.addEventListener("click", free1event);
 free2Btn.addEventListener("click", free2event);
 cheatBtn.addEventListener("click", cheat);
+loadScore();
