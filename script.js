@@ -69,6 +69,7 @@ let cookie = {
 console.log("!cookie: " + cookie);
 //continuosly updates all displays and stores gamestate
 function counterUpdateStore() {
+  console.log("Access Object: " + cookie.ClickIncFactor);
   //displays
   dispCounter.textContent = `\u2766${Math.floor(cookie.theCounter)}`;
   dispCookiePerX.textContent = `${cookie.ClickIncFactor}`;
@@ -128,6 +129,7 @@ function counterUpdateStore() {
 
   //storage
   localStorage.setItem("cookie", JSON.stringify(cookie));
+  console.log(localStorage.getItem("cookie"));
 }
 //load from storage
 function loadScore() {
