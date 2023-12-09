@@ -30,7 +30,7 @@ const resetBtn = document.getElementById("resetBtn");
 
 const cheatBtn = document.getElementById("cheat");
 
-//Initial load state:
+//Initial load state - mainly for reset
 const loadState = {
   firstLoad: true,
   theCounter: 0,
@@ -49,8 +49,7 @@ const loadState = {
   free1: false,
   free2: false,
 };
-
-console.log("!loadState: " + JSON.stringify(loadState));
+//had to add a switch that moved between loading from memory or loading fresh. The above will never change, the below is subject to change and I couldnt find a simple way of cloning an object.
 let whatToLoad;
 localStorage.getItem("cookie") !== null
   ? (whatToLoad = JSON.parse(localStorage.getItem("cookie")).firstLoad)
@@ -78,7 +77,6 @@ if (whatToLoad) {
   };
 } else cookie = JSON.parse(localStorage.getItem("cookie"));
 
-console.log("!cookie: " + JSON.stringify(cookie));
 //continuosly updates all displays and stores gamestate
 function counterUpdateStore() {
   //displays
@@ -149,7 +147,7 @@ function loadScore() {
 //click button 'manual increment'
 function manualInc() {
   cookie.theCounter += cookie.ClickIncFactor;
-  console.log(`count: ${cookie.theCounter}, inc: ${cookie.ClickIncFactor}`);
+
   animate();
   //winstate
   if (cookie.free0 === true && cookie.free1 === true && cookie.free2 === true) {
@@ -280,7 +278,7 @@ function cheat() {
   alert("cheaters never prosper");
   cookie.theCounter += 50000;
 }
-//animate function
+//counter animate function
 function animate() {
   dispCounter.style["transform"] = "scale(1.4)";
   dispCounter.style["transition"] = "0.25s";
@@ -288,13 +286,11 @@ function animate() {
 }
 //timers
 setTimeout(autoClick, cookie.autoClickTimer);
-setInterval(() => console.log(cookie), 5000);
 setInterval(autoInc, 100);
 setInterval(counterUpdateStore, 100);
 
 //event listeners
 theButton.addEventListener("click", manualInc);
-// theButton.addEventListener("click", animate);
 resetBtn.addEventListener("click", reset);
 comradeBtn.addEventListener("click", recruitComrade);
 foxSquadBtn.addEventListener("click", addFoxSquad);
@@ -303,15 +299,15 @@ campaignBtn.addEventListener("click", addCampaign);
 free0Btn.addEventListener("click", free0event);
 free1Btn.addEventListener("click", free1event);
 free2Btn.addEventListener("click", free2event);
+
 cheatBtn.addEventListener("click", cheat);
 
+//bugfixes
+//due to bug added a firstload check
 function load() {
-  console.log("onload: " + cookie.firstLoad);
   let fLoad = cookie.firstLoad;
   !fLoad ? loadScore : null;
   cookie.firstLoad = false;
-  console.log("firstload: " + fLoad);
 }
 
 window.addEventListener("load", load);
-console.log("check :" + cookie.firstLoad);
