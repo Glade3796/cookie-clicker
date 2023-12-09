@@ -32,6 +32,7 @@ const cheatBtn = document.getElementById("cheat");
 
 //Initial load state:
 const loadState = {
+  firstLoad: true,
   theCounter: 0,
   ClickIncFactor: 1,
   incrementor: 0,
@@ -48,28 +49,38 @@ const loadState = {
   free1: false,
   free2: false,
 };
-console.log("!loadState: " + loadState);
-let cookie = {
-  theCounter: 0,
-  ClickIncFactor: 1,
-  incrementor: 0,
-  autoIncTimer: 1000,
-  autoIncVal: 0,
-  autoClickTimer: 0,
-  comradeNum: 0,
-  comradeCost: 20,
-  foxSquadNum: 0,
-  foxSquadCost: 1000,
-  campaignNum: 0,
-  campaignCost: 2500,
-  free0: false,
-  free1: false,
-  free2: false,
-};
-console.log("!cookie: " + cookie);
+
+console.log("!loadState: " + JSON.stringify(loadState));
+let whatToLoad;
+localStorage.getItem("cookie") !== null
+  ? (whatToLoad = JSON.parse(localStorage.getItem("cookie")).firstLoad)
+  : (whatToLoad = true);
+
+let cookie = {};
+if (whatToLoad) {
+  cookie = {
+    firstLoad: true,
+    theCounter: 0,
+    ClickIncFactor: 1,
+    incrementor: 0,
+    autoIncTimer: 1000,
+    autoIncVal: 0,
+    autoClickTimer: 0,
+    comradeNum: 0,
+    comradeCost: 20,
+    foxSquadNum: 0,
+    foxSquadCost: 1000,
+    campaignNum: 0,
+    campaignCost: 2500,
+    free0: false,
+    free1: false,
+    free2: false,
+  };
+} else cookie = JSON.parse(localStorage.getItem("cookie"));
+
+console.log("!cookie: " + JSON.stringify(cookie));
 //continuosly updates all displays and stores gamestate
 function counterUpdateStore() {
-  console.log("Access Object: " + cookie.ClickIncFactor);
   //displays
   dispCounter.textContent = `\u2766${Math.floor(cookie.theCounter)}`;
   dispCookiePerX.textContent = `${cookie.ClickIncFactor}`;
@@ -129,7 +140,6 @@ function counterUpdateStore() {
 
   //storage
   localStorage.setItem("cookie", JSON.stringify(cookie));
-  console.log(localStorage.getItem("cookie"));
 }
 //load from storage
 function loadScore() {
@@ -148,17 +158,14 @@ function manualInc() {
 }
 //auto incrementor (consistent additions)
 function autoInc() {
-  console.log("intrval: " + cookie.autoIncVal);
   cookie.theCounter += cookie.autoIncVal;
 }
 //auto click - random button clicks
 function autoClick() {
-  console.log("tic");
   if (cookie.foxSquadNum > 0) {
     cookie.theCounter += cookie.incrementor;
     cookie.autoClickTimer =
       (Math.random() * 10 * 2 * 2000) / cookie.foxSquadNum;
-    console.log("auto: " + cookie.autoClickTimer / 1000);
     manualInc();
     setTimeout(autoClick, cookie.autoClickTimer);
   }
@@ -281,7 +288,7 @@ function animate() {
 }
 //timers
 setTimeout(autoClick, cookie.autoClickTimer);
-setInterval(() => console.log(cookie.theCounter), 5000);
+setInterval(() => console.log(cookie), 5000);
 setInterval(autoInc, 100);
 setInterval(counterUpdateStore, 100);
 
@@ -292,9 +299,19 @@ resetBtn.addEventListener("click", reset);
 comradeBtn.addEventListener("click", recruitComrade);
 foxSquadBtn.addEventListener("click", addFoxSquad);
 campaignBtn.addEventListener("click", addCampaign);
-loadScore();
+
 free0Btn.addEventListener("click", free0event);
 free1Btn.addEventListener("click", free1event);
 free2Btn.addEventListener("click", free2event);
 cheatBtn.addEventListener("click", cheat);
-loadScore();
+
+function load() {
+  console.log("onload: " + cookie.firstLoad);
+  let fLoad = cookie.firstLoad;
+  !fLoad ? loadScore : null;
+  cookie.firstLoad = false;
+  console.log("firstload: " + fLoad);
+}
+
+window.addEventListener("load", load);
+console.log("check :" + cookie.firstLoad);
