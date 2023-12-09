@@ -48,6 +48,7 @@ const loadState = {
   free1: false,
   free2: false,
 };
+console.log("!loadState: " + loadState);
 let cookie = {
   theCounter: 0,
   ClickIncFactor: 1,
@@ -65,6 +66,7 @@ let cookie = {
   free1: false,
   free2: false,
 };
+console.log("!cookie: " + cookie);
 //continuosly updates all displays and stores gamestate
 function counterUpdateStore() {
   //displays
