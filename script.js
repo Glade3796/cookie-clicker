@@ -1,3 +1,35 @@
+//DOM elements
+const theButton = document.getElementById("theBtn");
+const dispCounter = document.getElementById("counterDisp");
+const dispCookiePerX = document.getElementById("cookiesPerX");
+const autoClickInfo = document.getElementById("autoClickInfo");
+const intervalInfo = document.getElementById("intervalInfo");
+const dispCookiesPerSec = document.getElementById("cookiesPerSec");
+
+const comradeBtn = document.getElementById("recruitComrade");
+const dispComradeNum = document.getElementById("comradeNum");
+const comradeTxt = document.getElementById("recruitComTxt");
+
+const foxSquadBtn = document.getElementById("foxSquad");
+const dispFoxSquad = document.getElementById("foxSquadNum");
+const foxSquadTxt = document.getElementById("getFoxSquad");
+
+const campaignBtn = document.getElementById("ic1");
+const dispCampaign = document.getElementById("campaignNum");
+const campaignTxt = document.getElementById("getCampaign");
+
+const free0Btn = document.getElementById("free0");
+const free1Btn = document.getElementById("free1");
+const free2Btn = document.getElementById("free2");
+
+const dispFree = document.getElementById("freed");
+
+const dispComrades = document.getElementById("numberOfcomrades");
+
+const resetBtn = document.getElementById("resetBtn");
+
+const cheatBtn = document.getElementById("cheat");
+
 //Initial load state:
 const loadState = {
   theCounter: 0,
@@ -16,7 +48,23 @@ const loadState = {
   free1: false,
   free2: false,
 };
-let cookie = loadState;
+let cookie = {
+  theCounter: 0,
+  ClickIncFactor: 1,
+  incrementor: 0,
+  autoIncTimer: 1000,
+  autoIncVal: 0,
+  autoClickTimer: 0,
+  comradeNum: 0,
+  comradeCost: 20,
+  foxSquadNum: 0,
+  foxSquadCost: 1000,
+  campaignNum: 0,
+  campaignCost: 2500,
+  free0: false,
+  free1: false,
+  free2: false,
+};
 //continuosly updates all displays and stores gamestate
 function counterUpdateStore() {
   //displays
@@ -84,37 +132,6 @@ function loadScore() {
   cookie = JSON.parse(localStorage.getItem("cookie"));
 }
 
-//DOM elements
-const theButton = document.getElementById("theBtn");
-const dispCounter = document.getElementById("counterDisp");
-const dispCookiePerX = document.getElementById("cookiesPerX");
-const autoClickInfo = document.getElementById("autoClickInfo");
-const intervalInfo = document.getElementById("intervalInfo");
-const dispCookiesPerSec = document.getElementById("cookiesPerSec");
-
-const comradeBtn = document.getElementById("recruitComrade");
-const dispComradeNum = document.getElementById("comradeNum");
-const comradeTxt = document.getElementById("recruitComTxt");
-
-const foxSquadBtn = document.getElementById("foxSquad");
-const dispFoxSquad = document.getElementById("foxSquadNum");
-const foxSquadTxt = document.getElementById("getFoxSquad");
-
-const campaignBtn = document.getElementById("ic1");
-const dispCampaign = document.getElementById("campaignNum");
-const campaignTxt = document.getElementById("getCampaign");
-
-const free0Btn = document.getElementById("free0");
-const free1Btn = document.getElementById("free1");
-const free2Btn = document.getElementById("free2");
-
-const dispFree = document.getElementById("freed");
-
-const dispComrades = document.getElementById("numberOfcomrades");
-
-const resetBtn = document.getElementById("resetBtn");
-
-const cheatBtn = document.getElementById("cheat");
 //click button 'manual increment'
 function manualInc() {
   cookie.theCounter += cookie.ClickIncFactor;
